@@ -42,7 +42,7 @@ func TestGetAllData(t *testing.T) {
 		userUsecase := NewUserBusiness(mockUserDataFailed{})
 		result, err := userUsecase.GetAllData(0, 0)
 		assert.NotNil(t, err)
-		assert.Equal(t, nil, result)
+		assert.Nil(t, result)
 	})
 }
 
@@ -61,7 +61,7 @@ func TestInsertData(t *testing.T) {
 	})
 
 	t.Run("Test Insert Data Incompleted Failed", func(t *testing.T) {
-		userUsecase := NewUserBusiness(mockUserDataSuccess{})
+		userUsecase := NewUserBusiness(mockUserDataFailed{})
 		newUser := users.Core{
 			ID:    1,
 			Name:  "alta",
@@ -73,7 +73,7 @@ func TestInsertData(t *testing.T) {
 	})
 
 	t.Run("Test Insert Data Incompleted Failed", func(t *testing.T) {
-		userUsecase := NewUserBusiness(mockUserDataSuccess{})
+		userUsecase := NewUserBusiness(mockUserDataFailed{})
 		newUser := users.Core{
 			ID:       1,
 			Name:     "alta",
