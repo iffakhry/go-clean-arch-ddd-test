@@ -24,8 +24,8 @@ func (repo *mysqlBookRepository) SelectData(data string) (response []books.Core,
 	if result.Error != nil {
 		return []books.Core{}, result.Error
 	}
-	fmt.Println("databook", dataBooks[0].User.ID)
-	fmt.Println("databook", dataBooks[0].User.Name)
+	// fmt.Println("databook", dataBooks[0].User.ID)
+	// fmt.Println("databook", dataBooks[0].User.Name)
 	return toCoreList(dataBooks), nil
 }
 

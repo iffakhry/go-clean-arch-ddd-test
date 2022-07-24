@@ -2,6 +2,7 @@ package routes
 
 import (
 	"be9/restclean/factory"
+	"be9/restclean/middlewares"
 
 	"github.com/labstack/echo/v4"
 )
@@ -12,6 +13,7 @@ func New(presenter factory.Presenter) *echo.Echo {
 
 	// e.GET("/users", presenter.UserPresenter.GetAll, middlewares.JWTMiddleware())
 	e.GET("/users", presenter.UserPresenter.GetAll)
+	e.GET("/jwt/users", presenter.UserPresenter.GetAllWithJWT, middlewares.JWTMiddleware())
 	// e.GET("/products", presenter.ProductPresenter.GetAll)
 	// e.GET("/users/:id", _controllers.GetUserByIdController, middlewares.JWTMiddleware())
 	e.POST("/users", presenter.UserPresenter.AddUser)

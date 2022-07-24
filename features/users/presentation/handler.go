@@ -4,6 +4,7 @@ import (
 	"be9/restclean/features/users"
 	_requestUser "be9/restclean/features/users/presentation/request"
 	_responseUser "be9/restclean/features/users/presentation/response"
+	"be9/restclean/middlewares"
 	"net/http"
 	"strconv"
 
@@ -21,6 +22,30 @@ func NewUserHandler(business users.Business) *UserHandler {
 }
 
 func (h *UserHandler) GetAll(c echo.Context) error {
+	//param, query param, binding
+	limit := c.QueryParam("limit")
+	offset := c.QueryParam("offset")
+	limitint, _ := strconv.Atoi(limit)
+	offsetint, _ := strconv.Atoi(offset)
+	result, err := h.userBusiness.GetAllData(limitint, offsetint)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
+			"message": "failed to get all data",
+		})
+	}
+	return c.JSON(http.StatusOK, map[string]interface{}{
+		"message": "success",
+		"data":    _responseUser.FromCoreList(result),
+	})
+}
+
+func (h *UserHandler) GetAllWithJWT(c echo.Context) error {
+	idToken, _ := middlewares.ExtractToken(c)
+	if idToken < 1 {
+		return c.JSON(http.StatusUnauthorized, map[string]interface{}{
+			"message": "unauthorized",
+		})
+	}
 	//param, query param, binding
 	limit := c.QueryParam("limit")
 	offset := c.QueryParam("offset")
