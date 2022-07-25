@@ -48,6 +48,9 @@ nano ~/.zshrc
 Tambahkan tulisan berikut dibagian bawah: 
 export PATH=$PATH:/usr/local/mockery
 
+Tambahkan alias untuk mempermudah pemanggilan:
+alias mockery=”/usr/local/mockery”
+
 Close dengan 
 cara ctrl + x → dan pilih “y” untuk menyimpan.
 
