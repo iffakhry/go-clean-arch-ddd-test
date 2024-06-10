@@ -18,7 +18,7 @@ Baca dokumentasi Mockery di : https://github.com/vektra/mockery
 - Masukkan ke dalam 1 folder, dan beri nama "mockery" 
 - letakkan folder yang sudah terextract ke tempat yang mudah diakses. (contoh /users/namauser/mockery)
 - Buat alias untuk menjalankan mockery, dengan cara edit zshrc atau bashrc (sesuai kan dengan terminal yang digunakan)
-```
+```bash
 Contoh: 
 
 nano ~/.zshrc
@@ -31,7 +31,7 @@ Close dengan cara ctrl + x → dan pilih “y” untuk menyimpan.
 ```
 - Close terminal dan buka lagi
 - ketik `mockery –help`
-- Jika ada propt failed dikarenakan security, coba jalankan `chmod +x mockery`
+- Jika ada propt failed dikarenakan security, silakan masuk ke folder tempat mockery berada, dan coba jalankan `chmod +x mockery`
 - Lalu buka setting → security and privacy → klik tab general → klik “Allow”
 
 ### Install mockery di Linux
@@ -40,7 +40,7 @@ Close dengan cara ctrl + x → dan pilih “y” untuk menyimpan.
 - check apakah sudah berhasil extract, ketik `cd ~/usr/local` lalu `ls -a`
 - jika diperlukan, bisa lakukan rename folder mockery agar lebih mudah saat menjalankan mockery.
 - Tambahkan ke path untuk menjalankan mockery, dengan cara edit zshrc atau bashrc (sesuai kan dengan terminal yang digunakan)
-```
+```bash
 Contoh: 
 
 nano ~/.zshrc
@@ -57,7 +57,7 @@ cara ctrl + x → dan pilih “y” untuk menyimpan.
 ```
 - Close terminal dan buka lagi
 - ketik `mockery –help`
-- Jika ada propt failed dikarenakan security, coba jalankan `chmod +x mockery`
+- Jika ada propt failed dikarenakan security, silakan masuk ke folder tempat mockery berada, dan coba jalankan `chmod +x mockery`
 
 
 ## Generate Mock 
@@ -65,6 +65,7 @@ cara ctrl + x → dan pilih “y” untuk menyimpan.
 - masuk ke folder project
 - kita dapat men generate mock seluruh interface/kontrak yang ada dengan menjalankan perintah `mockery --all`
 - atau kita juga bisa men generate mock satu persatu. jalankan perintah `mockery --dir=features/users --name=Data --filename=UserData.go --structname=UserData`
+- note: sesuaikan isi dari `dir`, `name`, `filename`, dan `structname` dengan project yg dibuat.
 
 [*] perintah diatas akan men generate mock interface `Data` yang ada di folder `features/users`. dan akan membuat file baru dengan nama `UserData.go`, dengan nama struct mock `UserData`
 
